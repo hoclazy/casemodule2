@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ManagePhoneBook {
-    private final List<PhoneBook> list = docTuFile();
+    private final List<PhoneBook> list = readToFile();
 
     public ManagePhoneBook() throws IOException {
     }
@@ -65,7 +65,7 @@ public class ManagePhoneBook {
         }
     }
 
-    public List<PhoneBook> docTuFile() throws IOException {
+    public List<PhoneBook> readToFile() throws IOException {
         List<PhoneBook> listPB = new ArrayList<>();
         FileReader fr = new FileReader("contacts.csv");
         BufferedReader br = new BufferedReader(fr);
@@ -77,7 +77,7 @@ public class ManagePhoneBook {
         return listPB;
     }
 
-    public static void GhiVaoFile(List<PhoneBook> phoneBooks) throws IOException {
+    public static void writeToFile(List<PhoneBook> phoneBooks) throws IOException {
         FileWriter pw = new FileWriter("contacts.csv", true);
         BufferedWriter bw = new BufferedWriter(pw);
         for (PhoneBook pb : phoneBooks) {
